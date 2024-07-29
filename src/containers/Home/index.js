@@ -57,9 +57,6 @@ const Home = () => {
                       styles['home-header-list-tab--attached'],
                     )}
                   >
-                    {/* <div className={styles['home-header-list-tab__text']}>
-                      {text}
-                    </div> */}
                     <div
                       className={cn(
                         styles['home-header-list-tab__icon'],
