@@ -1,0 +1,234 @@
+@import "styles/base/variables";
+
+.home {
+    position: relative;
+    padding-top: 68px;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+        padding-top: 32px;
+    }
+
+    :global {
+        .container {
+            position: relative;
+        }
+    }
+
+    &-header {
+        display: flex;
+        background-color: $colorGrey100;
+        position: relative;
+
+        &-attached {
+            display: flex;
+        }
+
+        &-list {
+            display: flex;
+            flex-wrap: nowrap;
+            padding: 0;
+            scrollbar-width: none;
+            position: relative;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &-tab {
+                margin-top: 1px;
+                display: flex;
+                flex: 0 0 auto;
+                height: auto;
+                justify-content: center;
+                position: relative;
+                padding: 16px 20px;
+                align-items: center;
+                background-color: $colorWhite;
+
+                &:last-child {
+                    margin-right: 12px;
+                }
+
+                @media (max-width: 768px) {
+                    padding: 16px 10px;
+                }
+
+                &:hover {
+                    background-color: $colorGrey100;
+                }
+
+                &--attached {
+                    background-color: $colorGrey100;
+                }
+
+                &__icon {
+                    max-width: 16px;
+                    width: 100%;
+
+                    svg {
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    &--attached {
+                        svg {
+                            path {
+                                fill: $colorGrey900;
+                            }
+                        }
+                    }
+                }
+
+                &__text {
+                    min-width: fit-content;
+                    font-family: $fontPoppins;
+                    font-weight: 500;
+                    font-size: 14px;
+                    line-height: 16.1px;
+                    color: $colorGrey300;
+
+                    @media (max-width: 768px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &-dropdown {
+            position: absolute;
+            top: 1px;
+            right: 0;
+            z-index: 1;
+
+            &-button {
+                background-color: $colorWhite;
+                max-width: 48px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px 10px;
+                margin-left: auto;
+                cursor: pointer;
+                transition: $timeFast;
+
+                &--active {
+                    background-color: $colorDropdownBlue;
+                }
+
+                &__arrow {
+                    max-width: 16px;
+                    width: 100%;
+                    transition: $timeFast;
+
+                    svg {
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    &--active {
+                        transform: rotate(180deg);
+
+                        svg {
+                            path {
+                                fill: $colorWhite;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-list {
+                visibility: 0;
+                opacity: 0;
+                background-color: $colorWhite;
+                min-width: 225px;
+                border: 1px solid rgba($colorWhite100, 0.7);
+                border-radius: 0px 0px 4px 4px;
+                box-shadow: 0px 6px 30px 0px $colorShadowBlack;
+                transition: $timeFast;
+
+                @media (max-width: 768px) {
+                    min-width: auto;
+                }
+
+                &--active {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                &-item {
+                    width: 100%;
+                    padding: 15px;
+                    display: flex;
+                    align-items: center;
+
+                    &__icon {
+                        max-width: 16px;
+                        width: 100%;
+
+                        svg {
+                            display: flex;
+                            width: 100%;
+                            height: auto;
+                            path {
+                                fill: $colorGrey300;
+                            }
+                        }
+                    }
+
+                    &__text {
+                        margin-left: 10px;
+                        min-width: fit-content;
+                        font-family: $fontPoppins;
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 16.1px;
+                        color: $colorGrey300;
+
+                        @media (max-width: 768px) {
+                            display: none;
+                        }
+                    }
+
+                    &__remove {
+                        margin: auto 0 auto auto;
+                        max-width: 13.33px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        @media (max-width: 768px) {
+                            margin-left: 10px;
+                        }
+
+                        svg {
+                            display: flex;
+                            width: 100%;
+                            height: auto;
+
+                            path {
+                                fill: $colorGrey300;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &-field {
+        background: $colorGrey100;
+        padding: 20px;
+
+        &-block {
+            border-radius: 6px;
+            border: 2px solid rgba($colorSkyBlue, 20%);
+            background-color: $colorWhite;
+            width: 100%;
+            height: calc(100vh - 158px);
+        }
+    }
+}

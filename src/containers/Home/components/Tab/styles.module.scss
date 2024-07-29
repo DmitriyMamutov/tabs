@@ -1,0 +1,127 @@
+@import "styles/base/variables";
+
+.tab {
+    margin-top: 1px;
+    display: flex;
+    flex: 0 0 auto;
+    height: auto;
+    justify-content: center;
+    position: relative;
+    padding: 16px 20px;
+    align-items: center;
+    background-color: $colorWhite;
+
+    @media (max-width: 768px) {
+        padding: 16px 10px;
+    }
+
+    &:hover {
+        background-color: $colorGrey100;
+    }
+
+    &--attached {
+        background-color: $colorGrey100;
+    }
+
+    &--dragging {
+        background-color: $colorGrey300;
+    }
+
+    &__icon {
+        max-width: 16px;
+        width: 100%;
+
+        svg {
+            display: flex;
+
+            width: 100%;
+            height: auto;
+
+            path {
+                fill: $colorGrey300;
+            }
+        }
+
+        &--dragging {
+            svg {
+                path {
+                    fill: $colorWhite;
+                }
+            }
+        }
+    }
+
+    &__text {
+        min-width: fit-content;
+        font-family: $fontPoppins;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16.1px;
+        color: $colorGrey300;
+        margin-left: 10px;
+
+        &--dragging {
+            color: $colorWhite;
+        }
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &-pin {
+        position: absolute;
+        top: 45px;
+        left: 40px;
+        z-index: 1;
+        min-width: fit-content;
+        font-family: $fontPoppins;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16.1px;
+        color: $colorGrey300;
+        background-color: $colorWhite;
+        padding: 11px 15px;
+        width: 156px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(174, 182, 206, 0.2);
+        box-shadow: 0px 6px 30px 0px $colorShadowBlack;
+        border-radius: 6px;
+        overflow: visible;
+        cursor: pointer;
+
+        &__icon {
+            max-width: 15.5px;
+            width: 100%;
+
+            svg {
+                display: flex;
+                width: 100%;
+                height: auto;
+
+                path {
+                    fill: $colorGrey300;
+                }
+            }
+        }
+
+        &__text {
+            margin-left: 10px;
+        }
+    }
+
+    &__remove {
+        max-width: 13.33px;
+        width: 100%;
+        margin-left: 9px;
+        cursor: pointer;
+
+        svg {
+            display: flex;
+            width: 100%;
+            height: auto;
+        }
+    }
+}
