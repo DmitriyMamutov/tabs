@@ -22,6 +22,7 @@ const Tab = (props) => {
 
   const [pinVisibility, setPinVisibility] = useState(false);
 
+  // const navigate = useNavigate();
   const screenSize = useScreenSize();
   const ref = useRef();
 
@@ -30,7 +31,7 @@ const Tab = (props) => {
   useEffect(() => {
     if (
       window &&
-      ref.current.getBoundingClientRect().right > screenSize.width - 40
+      ref.current.getBoundingClientRect().right > screenSize.width - 150
     ) {
       newArr.forEach((obj) => {
         if (obj.id === id) {
