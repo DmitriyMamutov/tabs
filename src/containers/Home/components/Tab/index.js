@@ -30,7 +30,7 @@ const Tab = (props) => {
   useEffect(() => {
     if (
       window &&
-      ref.current.getBoundingClientRect().right > screenSize.width + 80
+      ref.current.getBoundingClientRect().right > screenSize.width - 40
     ) {
       newArr.forEach((obj) => {
         if (obj.id === id) {

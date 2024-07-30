@@ -20,6 +20,18 @@
         background-color: $colorGrey100;
         position: relative;
 
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            max-width: 70px;
+            width: 100%;
+            height: calc(100% - 1px);
+            background: linear-gradient(90deg, rgba($colorBlack, 0), rgba($colorBlack, 0.05));
+            top: 1px;
+            right: 0;
+        }
+
         &-attached {
             display: flex;
         }
@@ -33,66 +45,6 @@
 
             &::-webkit-scrollbar {
                 display: none;
-            }
-
-            &-tab {
-                margin-top: 1px;
-                display: flex;
-                flex: 0 0 auto;
-                height: auto;
-                justify-content: center;
-                position: relative;
-                padding: 16px 20px;
-                align-items: center;
-                background-color: $colorWhite;
-
-                &:last-child {
-                    margin-right: 12px;
-                }
-
-                @media (max-width: 768px) {
-                    padding: 16px 10px;
-                }
-
-                &:hover {
-                    background-color: $colorGrey100;
-                }
-
-                &--attached {
-                    background-color: $colorGrey100;
-                }
-
-                &__icon {
-                    max-width: 16px;
-                    width: 100%;
-
-                    svg {
-                        display: flex;
-                        width: 100%;
-                        height: auto;
-                    }
-
-                    &--attached {
-                        svg {
-                            path {
-                                fill: $colorGrey900;
-                            }
-                        }
-                    }
-                }
-
-                &__text {
-                    min-width: fit-content;
-                    font-family: $fontPoppins;
-                    font-weight: 500;
-                    font-size: 14px;
-                    line-height: 16.1px;
-                    color: $colorGrey300;
-
-                    @media (max-width: 768px) {
-                        display: none;
-                    }
-                }
             }
         }
 
@@ -145,7 +97,8 @@
                 visibility: 0;
                 opacity: 0;
                 background-color: $colorWhite;
-                min-width: 225px;
+                min-width: 48px;
+                max-width: 48px;
                 border: 1px solid rgba($colorWhite100, 0.7);
                 border-radius: 0px 0px 4px 4px;
                 box-shadow: 0px 6px 30px 0px $colorShadowBlack;
@@ -156,6 +109,8 @@
                 }
 
                 &--active {
+                    min-width: 225px;
+                    max-width: 225px;
                     opacity: 1;
                     visibility: visible;
                 }

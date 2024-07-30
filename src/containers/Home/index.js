@@ -3,6 +3,7 @@ import { DATA_LIST, ARROW, REMOVE } from 'constants/index';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import cn from 'classnames';
 import Tab from './components/Tab';
+import AttachedTab from './components/AttachedTab';
 import { ReactSVG } from 'react-svg';
 
 import styles from './styles.module.scss';
@@ -50,22 +51,7 @@ const Home = () => {
             {list?.map(({ id, text, isAttached, iconUrl }) => {
               if (isAttached) {
                 return (
-                  <div
-                    key={id}
-                    className={cn(
-                      styles['home-header-list-tab'],
-                      styles['home-header-list-tab--attached'],
-                    )}
-                  >
-                    <div
-                      className={cn(
-                        styles['home-header-list-tab__icon'],
-                        styles['home-header-list-tab__icon--attached'],
-                      )}
-                    >
-                      <ReactSVG src={iconUrl} />
-                    </div>
-                  </div>
+                  <AttachedTab key={id} id={id} iconUrl={iconUrl} text={text} />
                 );
               }
             })}
