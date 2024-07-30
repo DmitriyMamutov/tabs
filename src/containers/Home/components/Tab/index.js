@@ -22,7 +22,6 @@ const Tab = (props) => {
 
   const [pinVisibility, setPinVisibility] = useState(false);
 
-  // const navigate = useNavigate();
   const screenSize = useScreenSize();
   const ref = useRef();
 
