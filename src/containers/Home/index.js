@@ -5,6 +5,7 @@ import cn from 'classnames';
 import Tab from './components/Tab';
 import AttachedTab from './components/AttachedTab';
 import { ReactSVG } from 'react-svg';
+import { useSearchParams } from 'react-router-dom';
 
 import styles from './styles.module.scss';
 
@@ -13,6 +14,8 @@ const Home = () => {
     JSON.parse(localStorage.getItem('peristedList')) || DATA_LIST,
   );
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [activeId, setActiveId] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
     localStorage.setItem('peristedList', JSON.stringify(list));
@@ -42,6 +45,15 @@ const Home = () => {
   const handleDropdown = () => {
     setDropdownVisible((prevState) => !prevState);
   };
+
+  const handleClick = (id) => {
+    setActiveId(id);
+    setSearchParams({ q: id });
+  };
+
+  useEffect(() => {
+    setActiveId(searchParams.get('q') || '');
+  }, []);
 
   return (
     <section className={styles['home']}>
@@ -73,11 +85,13 @@ const Home = () => {
                             {(provided, snapshot) => (
                               <Tab
                                 id={id}
+                                activeId={activeId}
                                 list={list}
                                 iconUrl={iconUrl}
                                 setList={setList}
                                 provided={provided}
                                 text={text}
+                                onClick={() => handleClick(id)}
                                 handleAttach={handleAttach}
                                 handleDelete={handleDelete}
                                 snapshot={snapshot}

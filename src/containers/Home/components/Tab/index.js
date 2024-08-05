@@ -18,6 +18,8 @@ const Tab = (props) => {
     list,
     setList,
     handleDelete,
+    onClick,
+    activeId
   } = props;
 
   const [pinVisibility, setPinVisibility] = useState(false);
@@ -30,8 +32,7 @@ const Tab = (props) => {
   useEffect(() => {
     if (
       window &&
-      ref.current.getBoundingClientRect().right > screenSize.width - 150
-    ) {
+      ref.current.getBoundingClientRect().right > screenSize.width) {
       newArr.forEach((obj) => {
         if (obj.id === id) {
           obj.isVisible = false;
@@ -45,13 +46,16 @@ const Tab = (props) => {
   return (
     <div
       className={cn(styles['tab'], 'tab', {
-        [styles['tab--dragging']]: snapshot.isDragging,
+        [styles['tab--dragging']]: snapshot.isDragging,  
+        [styles['tab--active']]: id === activeId
       })}
+
       ref={provided.innerRef}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
       onMouseEnter={() => setPinVisibility(true)}
       onMouseLeave={() => setPinVisibility(false)}
+      onClick={onClick}
     >
       <div
         className={cn(styles['tab__icon'], {

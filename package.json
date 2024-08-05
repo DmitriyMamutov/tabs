@@ -30,8 +30,18 @@
     ],
     "rules": {
       "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off"
-    }
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "no-unused-vars": "warn"
+    },
+    "overrides": [
+      {
+        "files": ["**/*.ts?(x)"],
+        "rules": {
+          "max-len": "warn"
+        }
+      }
+    ]
   },
   "browserslist": {
     "production": [
@@ -46,7 +56,7 @@
     ]
   },
   "devDependencies": {
-    "eslint": "9.x",
+    "eslint": "^9.8.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react": "^7.35.0",
     "globals": "^15.8.0",
